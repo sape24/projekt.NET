@@ -1,0 +1,49 @@
+@model projekt.NET.Models.Ingrediens
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Ingrediens</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Namn" class="control-label"></label>
+                <input asp-for="Namn" class="form-control" />
+                <span asp-validation-for="Namn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mängd" class="control-label"></label>
+                <input asp-for="Mängd" class="form-control" />
+                <span asp-validation-for="Mängd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Enhet" class="control-label"></label>
+                <input asp-for="Enhet" class="form-control" />
+                <span asp-validation-for="Enhet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReceptId" class="control-label"></label>
+                <select asp-for="ReceptId" class="form-control" asp-items="ViewBag.ReceptId"></select>
+                <span asp-validation-for="ReceptId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

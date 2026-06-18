@@ -1,0 +1,42 @@
+@model projekt.NET.Models.Ingrediens
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Ingrediens</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Namn)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Namn)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Mängd)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Mängd)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Enhet)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Enhet)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Recept)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Recept.Titel)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
