@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using projekt.NET.Data;
 using projekt.NET.Models;
 
 namespace projekt.NET.Controllers
 {
+    [Authorize]
     public class IngrediensController : Controller
     {
         private readonly AppDbContext _context;
