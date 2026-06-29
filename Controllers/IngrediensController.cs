@@ -11,7 +11,7 @@ using projekt.NET.Models;
 
 namespace projekt.NET.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class IngrediensController : Controller
     {
         private readonly AppDbContext _context;

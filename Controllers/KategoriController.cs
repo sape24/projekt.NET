@@ -11,7 +11,7 @@ using projekt.NET.Models;
 
 namespace projekt.NET.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class KategoriController : Controller
     {
         private readonly AppDbContext _context;
