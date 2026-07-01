@@ -1,8 +1,31 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<projekt.NET.Models.Recept>
+
+@{
+    ViewData["Title"] = "Recept";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Recept</h1>
+
+@if (!Model.Any())
+{
+    <p>Inga recept ännu.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var recept in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">@recept.Titel</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@recept.Kategori?.Namn</h6>
+                        <p class="card-text">@recept.Beskrivning</p>
+                        <p class="card-text"><small class="text-muted">@recept.Tillagningstid min</small></p>
+                        <a asp-action="Details" asp-route-id="@recept.Id" class="btn btn-primary">Visa recept</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

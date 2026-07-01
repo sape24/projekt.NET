@@ -1,0 +1,33 @@
+@model projekt.NET.Models.Recept
+
+@{
+    ViewData["Title"] = Model.Titel;
+}
+
+<a asp-action="Index" class="btn btn-secondary mb-3">&larr; Tillbaka</a>
+
+<h1>@Model.Titel</h1>
+<h5 class="text-muted">@Model.Kategori?.Namn</h5>
+
+<p><strong>Tillagningstid:</strong> @Model.Tillagningstid min</p>
+
+<h3>Beskrivning</h3>
+<p>@Model.Beskrivning</p>
+
+<h3>Ingredienser</h3>
+@if (Model.Ingredienser.Any())
+{
+    <ul>
+        @foreach (var ingrediens in Model.Ingredienser)
+        {
+            <li>@ingrediens.Mängd @ingrediens.Enhet @ingrediens.Namn</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Inga ingredienser angivna.</p>
+}
+
+<h3>Instruktioner</h3>
+<p>@Model.Instruktioner</p>
